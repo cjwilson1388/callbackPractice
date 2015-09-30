@@ -81,20 +81,37 @@ multiply(4, 3, function(answer){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
-
-  //Code Here for contains
+var uniq = function(arr, cb) {
+    var newArr = [];
+    copiesArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        var found;
+        for (var y = 0; y < newArr.length; y++) {
+            if (arr[i] === newArr[y]) {
+                found = true;
+                break;
+            }
+        }
+        if (found !== true) {
+            newArr.push(arr[i]);
+        }
+        else {
+          copiesArr.push(arr[i])
+        }
+    }
+    cb(newArr);
+}
+    //Code Here for uniq
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-contains(names, 'Colt', function(result){
-  if(result === true){
-    console.log('Colt is in the array');
-  } else {
-    console.log('Colt is not in the array');
-  }
+uniq(names, function(uniqArr){
+  console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
+
+
+
+
+
 
 
 
@@ -102,8 +119,9 @@ contains(names, 'Colt', function(result){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
+function uniq(arr, cb){
+return arr.reduce(cb(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
+};
 
     //Code Here for uniq
 
@@ -120,7 +138,11 @@ uniq(names, function(uniqArr){
 
 
 
-
+var each = function(xArray, cb) {
+    for (var i = 0; i < xArray.length; i++) {
+       cb(xArray[i], i);
+    }
+}
     //Code Here for each
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -135,9 +157,15 @@ each(names, function(item, indice){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
+var getUserById = function(xList, ids, cb) {
+    for (var i = 0; i < xList.length; i++) {
+        if (xList[i].id === ids) {
+            return cb(xList[i])
+        }
+    }
+}
 
-
-
+     
  //code here for getUserById
 
 var users = [
@@ -164,3 +192,4 @@ var users = [
 getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
+
