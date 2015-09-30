@@ -22,11 +22,16 @@ and what you should write is the favNum function that makes the code above work,
     
 */
 
-//Adding back to github as a branch.
-
   //Code Here for first
+
+function first(array, cb) {
+  firstName = array[0];
+  return cb(firstName);
+
+}
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
 });
