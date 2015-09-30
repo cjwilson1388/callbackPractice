@@ -24,8 +24,8 @@ and what you should write is the favNum function that makes the code above work,
 
   //Code Here for first
 
-function first(array, cb) {
-  firstName = array[0];
+function first(arr, cb) {
+  firstName = arr[0];
   return cb(firstName);
 
 }
@@ -45,6 +45,11 @@ first(names, function(firstName){
 
   //Code Here for last
 
+function last(arr, cb) {
+  lastName = (arr.reverse())[0];
+  return cb(lastName);
+}
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
@@ -54,14 +59,17 @@ last(names, function(lastName){
 
 
 
+
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
 
-
-
-
   //Code Here for multiply
+var multiply = function(x, y, cb){
+  return cb(x * y);
+}
+
+
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
